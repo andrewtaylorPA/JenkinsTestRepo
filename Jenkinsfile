@@ -10,7 +10,7 @@ pipeline {
         }
       }
     }
-// 2 slashed to comment
+// 2 slashes to comment
     stage('deploy'){
       steps{
         sh 'echo "deploy stage"'
