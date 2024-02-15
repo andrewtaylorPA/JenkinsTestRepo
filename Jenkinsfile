@@ -6,19 +6,19 @@ pipeline {
     stage ('build') {
       steps {
         script {
-          ./buildstage.sh
+         sh './buildstage.sh'
         }
       }
     }
 // 2 slashes to comment
     stage('deploy'){
       steps{
-        ./deploystage.sh
+       sh './deploystage.sh'
       }
     }
     stage('test'){
       steps{
-        ./teststage.sh"'
+       sh './teststage.sh'
       }
     }
   }
