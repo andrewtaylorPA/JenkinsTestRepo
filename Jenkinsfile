@@ -3,7 +3,16 @@ pipeline {
     label 'worker'
   }
   stages {
-    stage ('build') {
+    stage ('Permissions') {
+      steps {
+        script {
+         sh 'chmod +x buildstage.sh'
+         sh 'chmod +x deploystage.sh'
+         sh 'chmod +x teststage.sh'
+        }
+      }
+    }
+    stage ('Build') {
       steps {
         script {
          sh './buildstage.sh'
@@ -11,12 +20,12 @@ pipeline {
       }
     }
 // 2 slashes to comment
-    stage('deploy'){
+    stage('Deploy'){
       steps{
        sh './deploystage.sh'
       }
     }
-    stage('test'){
+    stage('Test'){
       steps{
        sh './teststage.sh'
       }
